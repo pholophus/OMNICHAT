@@ -1,0 +1,24 @@
+import "@fluencelabs/aqua-lib/builtin.aqua"
+
+-- The service runs inside browser
+service HelloPeer("HelloPeer"):
+    hello(from: PeerId, target: PeerId, message: string) -> string
+
+func sayHello(targetPeerIds: []string, targetRelayPeerId: PeerId, message: string) -> string:
+    for targetPeerId <- targetPeerIds par:
+        on targetPeerId via targetRelayPeerId:
+        -- on targetPeerId2 via targetRelayPeerId:
+            res <- HelloPeer.hello(%init_peer_id%, targetPeerId, message)
+        <- res
+
+service ImageGenerator("imageGenerator"):                    
+    readTokenURI(tokenAddress: string, tokenId: i16) -> string
+    readMetadata(tokenURI: string)
+
+func getTokenURI(tokenAddress: string, tokenId: i16) -> string:
+    res <- ImageGenerator.readTokenURI(tokenAddress, tokenId)  
+    <- res                                    
+    
+func getMetadata(tokenURI: string):
+    ImageGenerator.readMetadata(tokenURI)
+
