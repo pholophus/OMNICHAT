@@ -210,7 +210,6 @@ function App() {
                     <h4>Address:</h4>
                     <div style={{ textAlign: 'center',backgroundColor:'EEECD9', width: '150px', height: '150px'}}>    
                     {data.address}
-                    {walletKey}
                     </div> 
                    
                     <strong>Balance: </strong>
@@ -229,24 +228,23 @@ function App() {
                     }}>
                 <div className='connectbtn'>
                 {/* <h2>Tutorial: Connect to Phantom Wallet</h2> */}
-                    <h2>Choose your wallet</h2>
-                    <div>
-                        <button onClick={btnhandler} style = {{}}>
-                            Connect to wallet
-                            </button>
-                        
-                    
-                        {provider && !walletKey  && (
-                        <button
-                           
-                            onClick={connectWallet}
-                        >
-                            Connect to Phantom Wallet
-                        </button>
+                <h2>Choose your wallet</h2>
+                <button onClick={btnhandler} style = {{}}>
+                    Connect to wallet
+                    </button>
                    
-                        )}
-                    </div>
-                
+               
+                {provider && !walletKey  && (
+                <button
+                    style={{
+                    fontSize: "15px",
+                    
+                    }}
+                    onClick={connectWallet}
+                >
+                    Connect to Phantom Wallet
+                </button>
+                )}
 
                 {provider && walletKey && (
                 <div>
@@ -288,10 +286,14 @@ function App() {
                 </Typography>
             </Container>
 
+
+  
+
+
             <div className="content">
                 {isConnected ? (
                     <>
-                        <h1 style={{marginTop: "15rem"}}>Connected</h1>
+                        <h1>Connected</h1>
                         <table>
                             <tbody>
                                 <tr>
@@ -372,7 +374,7 @@ function App() {
                 ) : (
                     <>
                         {/* <h1>Intro 1: P2P browser-to-browser</h1> */}
-                        <h2 style ={{ marginTop:"15rem"}}>Pick a relay</h2>
+                        <h2>Pick a relay</h2>
                         <ul>
                             {relayNodes.map((x) =>{
                                 // searchInput

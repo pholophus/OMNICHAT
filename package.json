@@ -5,6 +5,7 @@
     "dependencies": {
         "@fluencelabs/fluence": "0.23.3",
         "@fluencelabs/fluence-network-environment": "1.0.13",
+        "@material-ui/core": "^4.12.4",
         "@solana/web3.js": "^1.53.0",
         "@testing-library/jest-dom": "^5.14.1",
         "@testing-library/react": "^11.2.7",
@@ -19,7 +20,9 @@
         "patch-package": "^6.4.7",
         "react": "^17.0.2",
         "react-dom": "^17.0.2",
+        "react-icons": "^4.4.0",
         "react-scripts": "^5.0.0",
+        "solana": "^1.0.7-development",
         "typescript": "^4.6.3",
         "web-vitals": "^1.1.2",
         "web3": "^1.7.5"
